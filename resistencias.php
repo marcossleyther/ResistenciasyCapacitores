@@ -41,9 +41,9 @@
     <!--Selecciona el tiopo de Resistencia que se desea calcular -->
     <div class="container">
         <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
-            <form action="resistencias.php" method="post">
+            <form action=" " method="">
 
-                <input type="radio" class="btn-check" name="btnOpt" id="serie" autocomplete="off" value="serie" checked>
+                <input type="radio" class="btn-check" name="btnOpt" id="serie" autocomplete="off" value="serie">
                 <label class="btn btn-outline-dark" for="serie">Serie</label>
 
                 <input type="radio" class="btn-check" name="btnOpt" id="paralelo" autocomplete="off" value="paralelo">
@@ -64,166 +64,98 @@
 
         //Valida que suceda la accion de Seleccionar, de lo contrario el tipo por defecto sera serie
         if (isset($_REQUEST['btnTipo'])) {
-            $tipoRes = $_POST['btnOpt'];
+            $tipoRes = $_REQUEST['btnOpt'];
 
             switch ($tipoRes) {
                 case 'serie': //Caso para calcular en Serie
                     echo '<br><h5>Se calculara en Serie<h5>'; ?>
 
-                    <div class="input-group mt-5">
-                        <br> <!-- Consulta la cantidad de Resistencias que deseamos calcular-->
-                        <form action="resistencias.php" method="post">
-                            <h5>Cuantas Resistencias en Serie Deseas Calcular:</h4>
-                                <input type="number" name="CantResistencias" id="CantResistencias" value="2">
-                                <button type="submit" name="btnCantidad" class="btn btn-outline-danger">IR</button>
-                        </form>
-                    </div>
+                    <script>
+                        function cantidad() {
+                            var n = Number(window.prompt("Cantidad de resistencias en serie", 1))
+                            document.cookie = "var=" + n
+                        }
+                    </script>
+                    <a href="" onclick="cantidad()">Cantidad de resistencias a calcular</a> <br>
+                    <br>
+                    <br>
+                    <form action="ResSerie.php" method="POST">
+                        <?php for ($i = 1; $i <= $_COOKIE["var"]; $i++) : ?>
+                            <input type="text" name="resistencias[<?php echo $i ?>]">
 
-                    <?php
-
-                    //Valida que suceda la accion de Ir, de lo contrario la catidad de resistencias sera 2
-                    if (isset($_REQUEST['btnCantidad'])) {
-                        $resistencias = $_POST['CantResistencias'];
-                    } else {
-                        $resistencias = 2;
-                    }
-
-                    //Si el numero de resistencias es menor que 2, no muestra los input
-                    if ($resistencias < 2) {
-                        echo 'Ingrese minimo dos resistencias, luego presione e [IR]';
-                    } else {
-                        echo "<br>" . 'Ingrese los valores para: ' . "<br>";
-                        for ($i = 0; $i < $resistencias; $i++) {
-                    ?>
-                            <br>
-
-                            <form action="index.php" method="get">
-                                R <?php echo '' . $i + 1; ?>
-                                <input type="<?php $i; ?>" name="res" id="res">
-
-                            <?php }  ?>
-                            <button type="submit" class="btn btn-outline-danger">Calcular</button>
-                            </form>
-                        <?php }
+                        <?php endfor; ?>
+                        <input type="submit" name="btn" value="Enviar">
+                    </form>
+                <?php
                     break;
 
                 case 'paralelo': //Caso para calcular en Paralelo
                     echo '<br><h5>Se calculara en Paralelo<h5>'; ?>
-
-                        <div class="input-group mt-5">
-                            <br> <!-- Consulta la cantidad de Resistencias que deseamos calcular-->
-                            <form action="resistencias.php" method="post">
-                                <h5>Cuantas Resistencias en Paralelo Deseas Calcular:</h4>
-                                    <input type="number" name="CantResistencias" id="CantResistencias" value="2">
-                                    <button type="submit" name="btnCantidad" class="btn btn-outline-danger">IR</button>
-                            </form>
-                        </div>
-
-                        <?php
-
-                        //Valida que suceda la accion de Ir, de lo contrario la catidad de resistencias sera 2
-                        if (isset($_REQUEST['btnCantidad'])) {
-                            $resistencias = $_POST['CantResistencias'];
-                        } else {
-                            $resistencias = 2;
+                    <script>
+                        function cantidad() {
+                            var n = Number(window.prompt("Cantidad de resistencias en Para", 1))
+                            document.cookie = "var=" + n
                         }
+                    </script>
+                    <a href="" onclick="cantidad()">Cantidad de resistencias a calcular</a> <br>
+                    <br>
+                    <br>
+                    <form action="ResParalelo.php" method="POST">
+                        <?php for ($i = 1; $i <= $_COOKIE["var"]; $i++) : ?>
+                            <input type="text" name="resistencias[<?php echo $i ?>]">
 
-                        //Si el numero de resistencias es menor que 2, no muestra los input
-                        if ($resistencias < 2) {
-                            echo 'Ingrese minimo dos resistencias, luego presione e [IR]';
-                        } else {
-                            echo "<br>" . 'Ingrese los valores para: ' . "<br>";
-                            for ($i = 0; $i < $resistencias; $i++) {
-                        ?>
-                                <br>
+                        <?php endfor; ?>
+                        <input type="submit" name="btn" value="Enviar">
+                    </form>
+                <?php
+                    break;
 
-                                <form action="index.php" method="get">
-                                    R <?php echo '' . $i + 1; ?>
-                                    <input type="<?php $i; ?>" name="res" id="res">
+                case 'destrella': //Caso para calcular de Delta a Estrella
+                    echo '<br><h5>Se calculara Delta a Estrella<h5>'; ?>
+                    <script>
+                        function cantidad() {
+                            var n = Number(window.prompt("Cantidad de resistencias en Para", 1))
+                            document.cookie = "var=" + n
+                        }
+                    </script>
+                    <a href="" onclick="cantidad()">Cantidad de resistencias a calcular</a> <br>
+                    <br>
+                    <br>
+                    <form action="ResDestrella.php" method="POST">
+                        <?php for ($i = 1; $i <= $_COOKIE["var"]; $i++) : ?>
+                            <input type="text" name="resistencias[<?php echo $i ?>]">
 
-                                <?php }  ?>
-                                <button type="submit" class="btn btn-outline-danger">Calcular</button>
-                                </form>
-                    <?php }
+                        <?php endfor; ?>
+                        <input type="submit" name="btn" value="Enviar">
+                    </form>
+                <?php
+                    break;
 
-                        break;
-                    case 'destrella': //Caso para calcular de Delta a Estrella
-                        echo '<br><h5>Se calculara Delta a Estrella<h5>'; /*?>
-                    */
-                   for ($i = 0; $i < 3; $i++) {
-                        ?>
-                                <br>
- 
-                                <form action="index.php" method="get">
-                                    R <?php echo '' . $i + 1; ?>
-                                    <input type="<?php $i; ?>" name="res" id="res">
+                case 'edelta':    //Caso para calcular de Estrella a Delta
+                    echo '<br><h5>Se calculara Estrella a Delta<h5>'; ?>
+                    <script>
+                        function cantidad() {
+                            var n = Number(window.prompt("Cantidad de resistencias en Para", 1))
+                            document.cookie = "var=" + n
+                        }
+                    </script>
+                    <a href="" onclick="cantidad()">Cantidad de resistencias a calcular</a> <br>
+                    <br>
+                    <br>
+                    <form action="ResEsdelta.php" method="POST">
+                        <?php for ($i = 1; $i <= $_COOKIE["var"]; $i++) : ?>
+                            <input type="text" name="resistencias[<?php echo $i ?>]">
 
-                                <?php }  ?>
-                                <button type="submit" class="btn btn-outline-danger">Calcular</button>
-                                </form>
-                    <?php 
-
-                        break;
-                    case 'edelta':
-                         //Caso para calcular de Estrella a Delta
-                        echo '<br><h5>Se calculara Estrella a Delta<h5>';
-                        
-                        
-                   for ($i = 0; $i < 3; $i++) {
-                    ?>
-                            <br>
-
-                            <form action="index.php" method="get">
-                                R <?php echo '' . $i + 1; ?>
-                                <input type="<?php $i; ?>" name="res" id="res">
-
-                            <?php }  ?>
-                            <button type="submit" class="btn btn-outline-danger">Calcular</button>
-                            </form>
-                <?php 
-                break;
-                
-            }} else { //Valor por defecto para iniciar la pagina de resistencias
-                echo '<br><h5>Se calculara en Serie<h5>';
-                    ?>
-
-                    <div class="input-group mt-5">
-                        <br> <!-- Consulta la cantidad de Resistencias que deseamos calcular-->
-                        <form action="resistencias.php" method="post">
-                            <h5>Cuantas Resistencias Deseas Calcular:</h4>
-                                <input type="number" name="CantResistencias" id="CantResistencias" value="2">
-                                <button type="submit" name="btnCantidad" class="btn btn-outline-danger">IR</button>
-                        </form>
-                    </div>
-
-                    <?php
-
-                    //Valida que suceda la accion de Ir, de lo contrario la catidad de resistencias sera 2
-                    if (isset($_REQUEST['btnCantidad'])) {
-                        $resistencias = $_POST['CantResistencias'];
-                    } else {
-                        $resistencias = 2;
-                    }
-
-                    //Si el numero de resistencias es menor que 2, no muestra los input
-                    if ($resistencias < 2) {
-                        echo 'Ingrese el minimo dos resistencias, luego presione e [IR]';
-                    } else {
-                        echo "<br>" . 'Ingrese los valores para: ' . "<br>";
-                        for ($i = 0; $i < $resistencias; $i++) {
-                    ?>
-                            <br>
-
-                            <form action="index.php" method="get">
-                                R <?php echo '' . $i + 1; ?>
-                                <input type="<?php $i; ?>" name="res" id="res">
-
-                            <?php }  ?>
-                            <button type="submit" class="btn btn-outline-danger">Calcular</button>
-                            </form>
-                    <?php }
-                } //Fin else depues de switch
-                    ?>
+                        <?php endfor; ?>
+                        <input type="submit" name="btn" value="Enviar">
+                    </form>
+        <?php
+                    break;
+            }
+        } else { //Valor por defecto para iniciar la pagina de resistencias
+            echo '<br><h5>Estas en Else <h5>';
+        } //Fin else depues de switch
+        ?>
     </div>
 
 
