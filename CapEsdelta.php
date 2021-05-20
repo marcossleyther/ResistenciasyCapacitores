@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <title>Resistencias DeltaEstrella</title>
+    <title>Capacitor Estrella Delta</title>
 </head>
 
 <body>
@@ -51,16 +51,16 @@
         $R3 = ($Ra * $Rb) / ($Ra + $Rb + $Rc);
     ?>
         <div class="container-xl mt-5">
-            <h1>Resultado de Resistencias de Estrella a Delta</h1>
+            <h1>Resultado de Capacitancia de Delta a Estrella</h1>
             <div class="card mt-3 card-dark bg-dark" style="width: 30rem;">
                 <ul class="list-group list-group-flush">
 
 
-                    <li class="list-group-item"><?php echo "Resistencia R1:  " . $R1 . " Ohmios."; ?> </li>
+                    <li class="list-group-item"><?php echo "Capacitancia C1:  " . $R1 . " Faradios."; ?> </li>
                     echo "<br>";
-                    <li class="list-group-item"><?php echo "Resistencia R2:  " . $R2 . " Ohmios. "; ?> </li>
+                    <li class="list-group-item"><?php echo "Capacitancia C2:  " . $R2 . " Faradios. "; ?> </li>
                     echo "<br>";
-                    <li class="list-group-item"><?php echo "Resistencia R3:  " . $R3 . " Ohmios."; ?> </li> <?php
+                    <li class="list-group-item"><?php echo "Capacitancia C3:  " . $R3 . " Faradios."; ?> </li> <?php
                     echo "<br>";
         endif;
        ?>

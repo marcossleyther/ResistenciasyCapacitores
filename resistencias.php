@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand">Calculadora</a>
+            <a class="navbar-brand" href="index.php">Calculadora</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -112,50 +112,36 @@
 
                 case 'destrella': //Caso para calcular de Delta a Estrella
                     echo '<br><h5>Se calculara Delta a Estrella<h5>'; ?>
-                    <script>
-                        function cantidad() {
-                            var n = Number(window.prompt("Cantidad de resistencias en Para", 1))
-                            document.cookie = "var=" + n
-                        }
-                    </script>
-                    <a href="" onclick="cantidad()">Cantidad de resistencias a calcular</a> <br>
-                    <br>
-                    <br>
-                    <form action="ResDestrella.php" method="POST">
-                        <?php for ($i = 1; $i <= $_COOKIE["var"]; $i++) : ?>
-                            <input type="text" name="resistencias[<?php echo $i ?>]">
 
-                        <?php endfor; ?>
+                    <form action="ResDestrella.php">
+
+                        <input type="text" name="Ra">
+                        <input type="text" name="Rb">
+                        <input type="text" name="Rc">
                         <input type="submit" name="btn" value="Enviar">
                     </form>
-                <?php
+<?php
                     break;
 
-                case 'edelta':    //Caso para calcular de Estrella a Delta
-                    echo '<br><h5>Se calculara Estrella a Delta<h5>'; ?>
-                    <script>
-                        function cantidad() {
-                            var n = Number(window.prompt("Cantidad de resistencias en Para", 1))
-                            document.cookie = "var=" + n
-                        }
-                    </script>
-                    <a href="" onclick="cantidad()">Cantidad de resistencias a calcular</a> <br>
-                    <br>
-                    <br>
-                    <form action="ResEsdelta.php" method="POST">
-                        <?php for ($i = 1; $i <= $_COOKIE["var"]; $i++) : ?>
-                            <input type="text" name="resistencias[<?php echo $i ?>]">
+                    case 'edelta': //Caso para calcular de Estrella a Delta
+                    echo '<br>
+                    <h5>Se calculara Estrella a Delta<h5>'; ?>
+                            <form action="ResEsdelta.php">
 
-                        <?php endfor; ?>
-                        <input type="submit" name="btn" value="Enviar">
-                    </form>
-        <?php
+                                <input type="text" name="Ra">
+                                <input type="text" name="Rb">
+                                <input type="text" name="Rc">
+                                <input type="submit" name="btn" value="Enviar">
+                            </form>
+
+                <?php
                     break;
             }
         } else { //Valor por defecto para iniciar la pagina de resistencias
-            echo '<br><h5>Estas en Else <h5>';
+            echo '<br><h1>Bienvenido Selecciona el tipo de Resistencia ';
+            echo '<br><h1>seguido presiona [Seleccionar] <h1>';
         } //Fin else depues de switch
-        ?>
+                ?>
     </div>
 
 
