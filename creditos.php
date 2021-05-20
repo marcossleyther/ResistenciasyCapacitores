@@ -36,48 +36,32 @@
     </nav>
 
 
-
-
-
     <br>
     <div class="container-md">
         <h1>Proyecto Electronica Analogica</h1>
-
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
+                    <th scope="col">No.</th>
                     <th scope="col">Nombres</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Codigo</th>
                 </tr>
             </thead>
+<?php //Conexion a Base de Datos
+    $con = mysqli_connect('localhost', 'root', '', 'electronica');
+    $sql = "select * from creditos";
+    $resultado = mysqli_query($con, $sql) or die ('Error en la consulta');
+        while($datos = mysqli_fetch_array($resultado)){
+     ?>
             <tbody>
-                <tr>
-                    <td>Marcos Sleyther</td>
-                    <td>Castellanos Lemus</td>
-                    <td>6990-19-9299</td>
+                <tr> <!--Mostrar datos de la consulta -->
+                    <td> <?php echo''. $datos['Id']; ?> </td>
+                    <td> <?php echo''. $datos['Nombres']; ?> </td>
+                    <td> <?php echo $datos['Apellidos']; ?> </td>
+                    <td> <?php echo $datos['Carne']; ?> </td>
                 </tr>
-                <tr>
-                    <td>Victor Sleyther</td>
-                    <td>Castellanos Lemus</td>
-                    <td>6990-19-9299</td>
-                </tr>
-                <tr>
-                    <td>Andrea Sleyther</td>
-                    <td>Castellanos Lemus</td>
-                    <td>6990-19-9299</td>
-                </tr>
-                <tr>
-                    <td>Karla Sleyther</td>
-                    <td>Castellanos Lemus</td>
-                    <td>6990-19-9299</td>
-                </tr>
-                <tr>
-                    <td>Leandro Sleyther</td>
-                    <td>Castellanos Lemus</td>
-                    <td>6990-19-9299</td>
-                </tr>
-
+<?php } ?>
             </tbody>
         </table>
     </div>

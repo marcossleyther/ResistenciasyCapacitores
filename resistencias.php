@@ -66,6 +66,7 @@
         if (isset($_REQUEST['btnTipo'])) {
             $tipoRes = $_REQUEST['btnOpt'];
 
+            //Switch para validar tipo de operacion
             switch ($tipoRes) {
                 case 'serie': //Caso para calcular en Serie
                     echo '<br><h5>Se calculara en Serie<h5>'; ?>
@@ -84,7 +85,7 @@
                             <input type="text" name="resistencias[<?php echo $i ?>]">
 
                         <?php endfor; ?>
-                        <input type="submit" name="btn" value="Enviar">
+                        <input type="submit" name="btn" value="Calcular">
                     </form>
                 <?php
                     break;
@@ -105,7 +106,7 @@
                             <input type="text" name="resistencias[<?php echo $i ?>]">
 
                         <?php endfor; ?>
-                        <input type="submit" name="btn" value="Enviar">
+                        <input type="submit" name="btn" value="Calcular">
                     </form>
                 <?php
                     break;
@@ -118,7 +119,7 @@
                         <input type="text" name="Ra">
                         <input type="text" name="Rb">
                         <input type="text" name="Rc">
-                        <input type="submit" name="btn" value="Enviar">
+                        <input type="submit" name="btn" value="Calcular">
                     </form>
 <?php
                     break;
@@ -131,7 +132,7 @@
                                 <input type="text" name="Ra">
                                 <input type="text" name="Rb">
                                 <input type="text" name="Rc">
-                                <input type="submit" name="btn" value="Enviar">
+                                <input type="submit" name="btn" value="Calcular">
                             </form>
 
                 <?php

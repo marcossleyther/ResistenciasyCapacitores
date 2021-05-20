@@ -45,6 +45,8 @@
         $Ra = $_REQUEST['Ra'];
         $Rb = $_REQUEST['Rb'];
         $Rc = $_REQUEST['Rc'];
+        
+        $calculo = 'Ra= '.$Ra.', Rb= '.$Rb.', Rc= '.$Rc;
 
         $R1 = ($Rb * $Rc) / ($Ra + $Rb + $Rc);
         $R2 = ($Ra * $Rc) / ($Ra + $Rb + $Rc);
@@ -62,6 +64,16 @@
                     echo "<br>";
                     <li class="list-group-item"><?php echo "Resistencia R3:  " . $R3 . " Ohmios."; ?> </li> <?php
                     echo "<br>";
+
+                    $result = 'R1= '.$R1.', R2= '.$R2.', R3= '.$R3;
+?></div><?php
+    $con = mysqli_connect('localhost', 'root', '', 'electronica') or die ('Error en la conexion');
+    $sql = "INSERT INTO capacitores ('Operacion','Tipo','Calculo','Resultado') values ('Resistencia', 'Estrella Delta', '$calculo', '$result')";
+    echo $calculo. ' -- '.$result;
+    $resultado = mysqli_query($con, $sql) or die ('Error en el registro');
+    mysqli_close($con);
+    echo 'Se guardo el calculo de Resistencia';
+
         endif;
        ?>
 

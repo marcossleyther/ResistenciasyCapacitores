@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+<!--Barra de Navegacion -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Calculadora</a>
@@ -66,11 +66,12 @@
         if (isset($_REQUEST['btnTipo'])) {
             $tipoRes = $_REQUEST['btnOpt'];
 
+            //Swith para validar tipo de calculo
             switch ($tipoRes) {
                 case 'serie': //Caso para calcular en Paralelo
                     echo '<br><h5>Se calculara en Paralelo<h5>'; ?>
 
-                    <script>
+                    <script> //Ventana para ingresar cantidad de capacitancias
                         function cantidad() {
                             var n = Number(window.prompt("Cantidad de capacitancias en paralelo", 1))
                             document.cookie = "var=" + n
@@ -80,11 +81,11 @@
                     <br>
                     <br>
                     <form action="CapParalelo.php" method="POST">
-                        <?php for ($i = 1; $i <= $_COOKIE["var"]; $i++) : ?>
+                        <?php for ($i = 1; $i <= $_COOKIE["var"]; $i++) : ?> <!--Iterador para ingresar los valores -->
                             <input type="text" name="capacitancias[<?php echo $i ?>]">
 
                         <?php endfor; ?>
-                        <input type="submit" name="btn" value="Enviar">
+                        <input type="submit" name="btn" value="Calcular">
                     </form>
                 <?php
                     break;
@@ -105,7 +106,7 @@
                             <input type="text" name="capacitancias[<?php echo $i ?>]">
 
                         <?php endfor; ?>
-                        <input type="submit" name="btn" value="Enviar">
+                        <input type="submit" name="btn" value="Calcular">
                     </form>
                 <?php
                     break;
@@ -118,7 +119,7 @@
                         <input type="text" name="Ra">
                         <input type="text" name="Rb">
                         <input type="text" name="Rc">
-                        <input type="submit" name="btn" value="Enviar">
+                        <input type="submit" name="btn" value="Calcular">
                     </form>
 <?php
                     break;
@@ -131,7 +132,7 @@
                                 <input type="text" name="Ra">
                                 <input type="text" name="Rb">
                                 <input type="text" name="Rc">
-                                <input type="submit" name="btn" value="Enviar">
+                                <input type="submit" name="btn" value="Calcular">
                             </form>
 
                 <?php
