@@ -9,7 +9,7 @@
 
 <body>
 
-
+    <!--Barra de navegacion en Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Calculadora</a>
@@ -35,7 +35,7 @@
         </form>
     </nav>
 
-
+    <!--tabla para mostrar los participantes, gurdados en BBDD -->
     <br>
     <div class="container-md">
         <h1>Proyecto Electronica Analogica</h1>
@@ -48,21 +48,24 @@
                     <th scope="col">Codigo</th>
                 </tr>
             </thead>
-<?php //Conexion a Base de Datos
-    $con = mysqli_connect('localhost', 'root', '', 'electronica');
-    $sql = "select * from creditos";
-    $resultado = mysqli_query($con, $sql) or die ('Error en la consulta');
-        while($datos = mysqli_fetch_array($resultado)){
-     ?>
-            <tbody>
-                <tr> <!--Mostrar datos de la consulta -->
-                    <td> <?php echo''. $datos['Id']; ?> </td>
-                    <td> <?php echo''. $datos['Nombres']; ?> </td>
-                    <td> <?php echo $datos['Apellidos']; ?> </td>
-                    <td> <?php echo $datos['Carne']; ?> </td>
-                </tr>
-<?php } ?>
-            </tbody>
+            <?php
+            //Conexion a Base de Datos
+            $con = mysqli_connect('localhost', 'root', '', 'electronica');
+            $sql = "select * from creditos";
+            $resultado = mysqli_query($con, $sql) or die('Error en la consulta');
+
+            while ($datos = mysqli_fetch_array($resultado)) {
+            ?>
+                <tbody>
+                    <tr>
+                        <!--Mostrar datos de la consulta -->
+                        <td> <?php echo '' . $datos['Id']; ?> </td>
+                        <td> <?php echo '' . $datos['Nombres']; ?> </td>
+                        <td> <?php echo $datos['Apellidos']; ?> </td>
+                        <td> <?php echo $datos['Carne']; ?> </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
         </table>
     </div>
 

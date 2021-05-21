@@ -11,6 +11,7 @@
 
 <body>
 
+    <!--Barra de navegacion en el Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Calculadora</a>
@@ -36,8 +37,21 @@
         </form>
     </nav>
 
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Resistencias</h1>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, et adipisci. Totam ratione voluptatem vel autem nesciunt velit quam soluta ea facilis? Quos omnis accusamus fuga placeat modi optio excepturi!
+            </div>
+            <div class="col-sm-6">
+                <h1>Capacitores</h1>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est doloremque facere dolorum consequatur nobis! Ab optio molestiae nam mollitia qui deserunt animi, vero at, possimus a delectus, quasi quia minima.
+            </div>
+        </div>
+    </div>
 
-    <h5>http://localhost/ProyectoElectronicaAnalogica/ResistenciasyCapacitores/resistencias.php</h5>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>

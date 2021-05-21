@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+    <!--Barra de navegacion en Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Calculadora</a>
@@ -121,28 +121,28 @@
                         <input type="text" name="Rc">
                         <input type="submit" name="btn" value="Calcular">
                     </form>
-<?php
+                <?php
                     break;
 
-                    case 'edelta': //Caso para calcular de Estrella a Delta
+                case 'edelta': //Caso para calcular de Estrella a Delta
                     echo '<br>
                     <h5>Se calculara Estrella a Delta<h5>'; ?>
-                            <form action="ResEsdelta.php">
+                    <form action="ResEsdelta.php">
 
-                                <input type="text" name="Ra">
-                                <input type="text" name="Rb">
-                                <input type="text" name="Rc">
-                                <input type="submit" name="btn" value="Calcular">
-                            </form>
+                        <input type="text" name="Ra">
+                        <input type="text" name="Rb">
+                        <input type="text" name="Rc">
+                        <input type="submit" name="btn" value="Calcular">
+                    </form>
 
-                <?php
+        <?php
                     break;
             }
         } else { //Valor por defecto para iniciar la pagina de resistencias
             echo '<br><h1>Bienvenido Selecciona el tipo de Resistencia ';
             echo '<br><h1>seguido presiona [Seleccionar] <h1>';
         } //Fin else depues de switch
-                ?>
+        ?>
     </div>
 
 

@@ -11,6 +11,7 @@
 
 <body>
 
+    <!--Barra de navegacion en el Header -->
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Calculadora</a>
@@ -34,50 +35,57 @@
     </nav>
 
     <?php
+    //Variables globales
     $Ra = 0.00;
     $Rb = 0.00;
     $Rc = 0.00;
     $R1 = 0.00;
     $R2 = 0.00;
     $R3 = 0.00;
-
+    $calculo = '';
+    $result = '';
+    //Evalua si vienen valores del formulario y se operan
     if (isset($_REQUEST['btn'])) :
         $Ra = $_REQUEST['Ra'];
         $Rb = $_REQUEST['Rb'];
         $Rc = $_REQUEST['Rc'];
-        
-        $calculo = 'Ra= '.$Ra.', Rb= '.$Rb.', Rc= '.$Rc;
+
+        $calculo = 'Ra= ' . $Ra . ', Rb= ' . $Rb . ', Rc= ' . $Rc;
 
         $R1 = ($Rb * $Rc) / ($Ra + $Rb + $Rc);
         $R2 = ($Ra * $Rc) / ($Ra + $Rb + $Rc);
         $R3 = ($Ra * $Rb) / ($Ra + $Rb + $Rc);
     ?>
         <div class="container-xl mt-5">
-            <h1>Resultado de Resistencias de Estrella a Delta</h1>
+            <h1>Resultado de Resistencias de Delta a Estrella</h1>
             <div class="card mt-3 card-dark bg-dark" style="width: 30rem;">
                 <ul class="list-group list-group-flush">
 
-
+                    <!--Se muestran los resultados -->
                     <li class="list-group-item"><?php echo "Resistencia R1:  " . $R1 . " Ohmios."; ?> </li>
                     echo "<br>";
                     <li class="list-group-item"><?php echo "Resistencia R2:  " . $R2 . " Ohmios. "; ?> </li>
                     echo "<br>";
-                    <li class="list-group-item"><?php echo "Resistencia R3:  " . $R3 . " Ohmios."; ?> </li> <?php
+                    <li class="list-group-item"><?php echo "Resistencia R3:  " . $R3 . " Ohmios."; ?> </li>
+                    <?php
                     echo "<br>";
 
-                    $result = 'R1= '.$R1.', R2= '.$R2.', R3= '.$R3;
-?></div><?php
-    $con = mysqli_connect('localhost', 'root', '', 'electronica') or die ('Error en la conexion');
-    $sql = "INSERT INTO capacitores ('Operacion','Tipo','Calculo','Resultado') values ('Resistencia', 'Estrella Delta', '$calculo', '$result')";
-    echo $calculo. ' -- '.$result;
-    $resultado = mysqli_query($con, $sql) or die ('Error en el registro');
-    mysqli_close($con);
-    echo 'Se guardo el calculo de Resistencia';
+                    $result = 'R1= ' . $R1 . ', R2= ' . $R2 . ', R3= ' . $R3 . ' Ohmios';
+                    ?>
+            </div>
+        <?php
+       
+       //Conexion a base de datos para guardar los valores
+        $con = mysqli_connect('localhost', 'root', '', 'electronica') or die('Error en la conexion');
+        $sql = "INSERT INTO capacitores (Operacion,Tipo,Calculo,Resultado) values ('Resistencia', 'Delta Estrella', '$calculo', '$result')";
+        $resultado = mysqli_query($con, $sql) or die('Error en el registro');
+        mysqli_close($con);
+        echo '<br><h4>Se guardo el calculo de Resistencia en <a href="historial.php">Historial</a></h4>';
 
-        endif;
-       ?>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    endif;
+        ?>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    <!--Barra de navegacion en Header -->
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Calculadora</a>
@@ -34,6 +34,7 @@
     </nav>
 
     <?php
+    //Muestra y opera los valores tomados
     $Ra = 0.00;
     $Rb = 0.00;
     $Rc = 0.00;
@@ -41,31 +42,48 @@
     $R2 = 0.00;
     $R3 = 0.00;
 
+    $calculo = '';
+    $result = '';
+
     if (isset($_REQUEST['btn'])) :
         $Ra = $_REQUEST['Ra'];
         $Rb = $_REQUEST['Rb'];
         $Rc = $_REQUEST['Rc'];
+
+        $calculo = 'Ra= ' . $Ra . ', Rb= ' . $Rb . ', Rc= ' . $Rc;
 
         $R1 = ($Rb * $Rc) / ($Ra + $Rb + $Rc);
         $R2 = ($Ra * $Rc) / ($Ra + $Rb + $Rc);
         $R3 = ($Ra * $Rb) / ($Ra + $Rb + $Rc);
     ?>
         <div class="container-xl mt-5">
-            <h1>Resultado de Capacitancia de Delta a Estrella</h1>
+            <h1>Resultado de Capacitancia de Estrella Delta</h1>
             <div class="card mt-3 card-dark bg-dark" style="width: 30rem;">
                 <ul class="list-group list-group-flush">
 
-
+                    <!--Resultados obtenidos -->
                     <li class="list-group-item"><?php echo "Capacitancia C1:  " . $R1 . " Faradios."; ?> </li>
                     echo "<br>";
                     <li class="list-group-item"><?php echo "Capacitancia C2:  " . $R2 . " Faradios. "; ?> </li>
                     echo "<br>";
-                    <li class="list-group-item"><?php echo "Capacitancia C3:  " . $R3 . " Faradios."; ?> </li> <?php
+                    <li class="list-group-item"><?php echo "Capacitancia C3:  " . $R3 . " Faradios."; ?> </li>
+                    <?php
                     echo "<br>";
-        endif;
-       ?>
+                    $result = 'C1= ' . $R1 . ', C2= ' . $R2 . ', C3= ' . $R3 . ' Faradios';
+                    ?>
+            </div>
+        <?php
+        //Conexion a base de datos para guardar los valores
+        $con = mysqli_connect('localhost', 'root', '', 'electronica') or die('Error en la conexion');
+        $sql = "INSERT INTO capacitores (Operacion,Tipo,Calculo,Resultado) values ('Capacitor', 'Estrella Delta', '$calculo', '$result')";
+        $resultado = mysqli_query($con, $sql) or die('Error en el registro');
+        mysqli_close($con);
+        echo '<br><h4>Se guardo el calculo de Capacitancias en <a href="historial.php">Historial</a></h4>';
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    endif;
+        ?>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>
