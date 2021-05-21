@@ -57,20 +57,20 @@
           <li class="list-group-item"> <?php echo "El resultado de las resistencias en serie es: " . $suma . " Ohmios <br> " . $resul; ?> </li>
         </ul>
       </div>
-    </div>
     <?php
 
-    $cadena_equipo = implode(", R" . (1 + 1) . '= ', $arr);
-    $calculo = "R1= " . $cadena_equipo;
-    $resul = $suma . ' Ohmios';
+$cadena_equipo = implode(", R" . (1 + 1) . '= ', $arr);
+$calculo = "R1= " . $cadena_equipo;
+$resul = $suma . ' Ohmios';
 
-    //Conexion a base de datos para guardar los valores
-    $con = mysqli_connect('localhost', 'root', '', 'electronica') or die('Error en la conexion');
-    $sql = "INSERT INTO capacitores (Operacion,Tipo,Calculo,Resultado) values ('Resistencia', 'Serie', '$calculo', '$resul')";
-    $resultado = mysqli_query($con, $sql) or die('Error en el registro');
-    mysqli_close($con);
-    echo '<br><h4>Se guardo el calculo de Resistencia en <a href="historial.php">Historial</a></h4>';
-    ?>
+//Conexion a base de datos para guardar los valores
+$con = mysqli_connect('localhost', 'root', '', 'electronica') or die('Error en la conexion');
+$sql = "INSERT INTO capacitores (Operacion,Tipo,Calculo,Resultado) values ('Resistencia', 'Serie', '$calculo', '$resul')";
+$resultado = mysqli_query($con, $sql) or die('Error en el registro');
+mysqli_close($con);
+echo '<br><h4>Se guardo el calculo de Resistencia en <a href="historial.php">Historial</a></h4>';
+?>
+</div>
 
   <?php
   } else {

@@ -65,8 +65,7 @@
           <li class="list-group-item"> <?php echo "El resultado de las resistencias en paralelo es: " . $r2 . " Ohmios";  ?> </li>
         </ul>
       </div>
-    </div>
-  <?php
+    <?php
 
     $cadena_equipo = implode(", R" . (1 + 1) . '= ', $arr);
     $calculo = "R1= " . $cadena_equipo;
@@ -82,10 +81,11 @@
 
 
   endif;
-  ?>
+    ?>
+    </div>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>

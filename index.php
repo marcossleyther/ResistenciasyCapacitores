@@ -36,16 +36,46 @@
             <a class="btn btn-outline-light" href="creditos.php">Creditos</a>
         </form>
     </nav>
-
+<!--Contenido para informacion de resistencias -->
     <div class="container mt-3">
         <div class="row">
             <div class="col-sm-6">
                 <h1>Resistencias</h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, et adipisci. Totam ratione voluptatem vel autem nesciunt velit quam soluta ea facilis? Quos omnis accusamus fuga placeat modi optio excepturi!
+                <hr>
+                <div class="card" style="width: 25rem;">
+                    <img src="img/resistencia.png" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Una resistencia eléctrica es toda oposición que se da y que encuentra la corriente al pasar por un circuito
+                            eléctrico cerrado, motivo por el que atenúa o frena el flujo de la circulación de la carga eléctrica o de los electrones implicados.
+                        </p>
+                        <p class="card-text">
+                            La resistencia eléctrica sirve como un impedimento para el movimiento de los electrones o corriente eléctrica. En ese sentido, son muchos los posibles
+                            usos o aplicaciones como por ejemplo la división de la corriente, de la tensión, la polarización de circuitos, la regulación de la velocidad en un motor
+                            de anillos rozantes e incluso en motores de corriente continua.
+                        </p><br>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-6">
+<!--Contenido para informacion de capacitores -->
                 <h1>Capacitores</h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est doloremque facere dolorum consequatur nobis! Ab optio molestiae nam mollitia qui deserunt animi, vero at, possimus a delectus, quasi quia minima.
+                <hr>
+                <div class="card" style="width: 25rem;">
+                    <img src="img/Capacitor.jpg" class="card-img-top" height="230" width="5px">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Un capacitor o también conocido como condensador es un dispositivo capaz de almacenar energía a través de campos eléctricos
+                            (uno positivo y uno negativo). Este se clasifica dentro de los componentes pasivos ya que no tiene la capacidad de amplificar o cortar el flujo eléctrico.
+                        </p>
+                        <p class="card-text">
+                            En su estado natural cada una de las placas internas tiene el mismo numero de electrones. Cuando conectamos una fuente de voltaje una de las placas pierde electrones
+                            (siendo esta la terminal positiva), mientras que la otra los gana ( terminal negativa). Este movimiento de electrones se detiene cuando el capacitor alcanza el mismo 
+                            voltaje que la fuente de alimentación.
+                        </p><br>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

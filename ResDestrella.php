@@ -74,8 +74,8 @@
                     ?>
             </div>
         <?php
-       
-       //Conexion a base de datos para guardar los valores
+
+        //Conexion a base de datos para guardar los valores
         $con = mysqli_connect('localhost', 'root', '', 'electronica') or die('Error en la conexion');
         $sql = "INSERT INTO capacitores (Operacion,Tipo,Calculo,Resultado) values ('Resistencia', 'Delta Estrella', '$calculo', '$result')";
         $resultado = mysqli_query($con, $sql) or die('Error en el registro');
