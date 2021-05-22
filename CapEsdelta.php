@@ -50,7 +50,7 @@
         $Rb = $_REQUEST['Rb'];
         $Rc = $_REQUEST['Rc'];
 
-        $calculo = 'Ra= ' . $Ra . ', Rb= ' . $Rb . ', Rc= ' . $Rc;
+        $calculo = 'Ca= ' . $Ra . ', Cb= ' . $Rb . ', Cc= ' . $Rc;
 
         $R1 = ($Rb * $Rc) / ($Ra + $Rb + $Rc);
         $R2 = ($Ra * $Rc) / ($Ra + $Rb + $Rc);

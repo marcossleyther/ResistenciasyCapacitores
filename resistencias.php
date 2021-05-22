@@ -92,9 +92,9 @@
 
                 case 'paralelo': //Caso para calcular en Paralelo
                     echo '<br><h5>Se calculara en Paralelo<h5>'; ?>
-                    <script>
-                        function cantidad() {
-                            var n = Number(window.prompt("Cantidad de resistencias en Para", 1))
+                    <scriunction cantidad() {
+                          pt>
+                        f  var n = Number(window.prompt("Cantidad de resistencias en Para", 1))
                             document.cookie = "var=" + n
                         }
                     </script>
